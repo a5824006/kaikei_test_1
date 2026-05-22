@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>会計学 第1回授業内テスト対策</title>
+  <title>会計のテスト用</title>
   <style>
     :root {
       --ink: #17202a;
@@ -13,19 +13,12 @@
       --line: #d9dde3;
       --accent: #2f6f6d;
       --accent-2: #8d4f55;
-      --mark: #f2c14e;
       --soft: #eef6f5;
       --soft-2: #fff6dc;
       --shadow: 0 10px 24px rgba(23, 32, 42, .08);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -35,85 +28,40 @@
       line-height: 1.75;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration-thickness: 1px;
-      text-underline-offset: 4px;
-    }
-
     header {
       border-bottom: 1px solid var(--line);
       background: var(--panel);
     }
 
     .hero {
-      max-width: 1120px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 36px 24px 28px;
+      padding: 42px 24px 34px;
     }
 
     .eyebrow {
       margin: 0 0 8px;
       color: var(--accent-2);
-      font-size: .86rem;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     h1 {
       margin: 0;
       font-size: 2.15rem;
-      line-height: 1.28;
+      line-height: 1.25;
       letter-spacing: 0;
     }
 
     .lead {
-      max-width: 760px;
+      max-width: 780px;
       margin: 14px 0 0;
       color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 260px minmax(0, 1fr);
-      gap: 28px;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 28px 24px 56px;
-    }
-
-    nav {
-      position: sticky;
-      top: 16px;
-      align-self: start;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--panel);
-      box-shadow: var(--shadow);
-      padding: 14px;
-    }
-
-    nav h2 {
-      margin: 0 0 8px;
-      font-size: .95rem;
-    }
-
-    nav a {
-      display: block;
-      border-radius: 6px;
-      padding: 7px 8px;
-      color: var(--ink);
-      text-decoration: none;
-      font-size: .92rem;
-    }
-
-    nav a:hover {
-      background: var(--soft);
-      color: var(--accent);
     }
 
     main {
-      min-width: 0;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 28px 24px 58px;
     }
 
     section {
@@ -129,484 +77,158 @@
       margin: 0 0 14px;
       font-size: 1.35rem;
       line-height: 1.35;
-      letter-spacing: 0;
     }
 
     h3 {
-      margin: 22px 0 8px;
-      font-size: 1.05rem;
-      line-height: 1.45;
-      letter-spacing: 0;
+      margin: 0 0 8px;
+      font-size: 1.08rem;
     }
 
-    p {
-      margin: 0 0 12px;
+    p { margin: 0 0 12px; }
+    ul { margin: 8px 0 0; padding-left: 1.25rem; }
+    li + li { margin-top: 4px; }
+
+    a {
+      color: var(--accent);
+      text-underline-offset: 4px;
     }
 
-    ul, ol {
-      padding-left: 1.35rem;
-      margin: 8px 0 14px;
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
     }
 
-    li + li {
-      margin-top: 4px;
+    .card {
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 18px;
+      text-decoration: none;
+      color: var(--ink);
     }
 
-    strong {
-      color: #111820;
+    .card:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
     }
 
-    .callout {
+    .card .range {
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 10px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--accent);
+      padding: 2px 9px;
+      font-size: .85rem;
+      font-weight: 900;
+    }
+
+    .card .status {
+      margin-top: auto;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .notice {
       border-left: 5px solid var(--accent);
       border-radius: 6px;
       background: var(--soft);
       padding: 14px 16px;
-      margin: 14px 0;
     }
 
-    .warning {
-      border-left-color: var(--mark);
-      background: var(--soft-2);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .mini {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 14px;
-      background: #fff;
-    }
-
-    .mini h3 {
-      margin-top: 0;
-    }
-
-    .visual-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .diagram {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #fff;
-      padding: 16px;
-    }
-
-    .diagram h3 {
-      margin-top: 0;
-    }
-
-    .diagram p {
-      color: var(--muted);
-      font-size: .94rem;
-    }
-
-    .diagram small {
-      display: block;
-      margin-top: 3px;
-      color: var(--muted);
-      font-weight: 600;
-    }
-
-    .balance-diagram {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
-      gap: 8px;
-      min-height: 154px;
-      margin: 12px 0;
-    }
-
-    .stack {
-      display: grid;
-      gap: 8px;
-    }
-
-    .block {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 68px;
-      border: 2px solid var(--accent);
-      border-radius: 8px;
-      background: var(--soft);
-      padding: 10px;
-      text-align: center;
-      font-weight: 800;
-      word-break: keep-all;
-    }
-
-    .block.assets {
-      min-height: 154px;
-      border-color: var(--accent-2);
-      background: #fff3f4;
-    }
-
-    .block.profit {
-      border-color: #9f7a00;
-      background: #fff6dc;
-    }
-
-    .pl-steps {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr auto 1fr;
-      align-items: center;
-      gap: 8px;
-      margin: 12px 0;
-    }
-
-    .step {
-      border: 2px solid var(--accent);
-      border-radius: 8px;
-      background: var(--soft);
-      padding: 12px 8px;
-      text-align: center;
-      font-weight: 800;
-      word-break: keep-all;
-    }
-
-    .operator {
-      color: var(--accent-2);
-      font-size: 1.25rem;
-      font-weight: 900;
-    }
-
-    .timeline {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-      margin: 12px 0;
-      position: relative;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 8%;
-      right: 8%;
-      top: 24px;
-      height: 5px;
-      border-radius: 999px;
-      background: #c8dedc;
-    }
-
-    .node {
-      position: relative;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #fff;
-      padding: 44px 10px 12px;
-      text-align: center;
-      font-weight: 800;
-    }
-
-    .node::before {
-      content: "";
-      position: absolute;
-      top: 16px;
-      left: 50%;
-      width: 18px;
-      height: 18px;
-      transform: translateX(-50%);
-      border: 4px solid var(--accent);
-      border-radius: 999px;
-      background: #fff;
-    }
-
-    .split-note {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .note {
-      border-radius: 8px;
-      background: var(--soft);
-      padding: 10px;
-      text-align: center;
-      font-weight: 800;
-      word-break: keep-all;
-    }
-
-    .note.next {
-      background: var(--soft-2);
-    }
-
-    .depr-bars {
-      display: flex;
-      align-items: flex-end;
-      gap: 10px;
-      min-height: 135px;
-      margin: 12px 0;
-      border-bottom: 2px solid var(--line);
-      padding: 0 4px 8px;
-    }
-
-    .depr-bar {
-      flex: 1;
-      border-radius: 8px 8px 4px 4px;
-      background: linear-gradient(180deg, #8d4f55, #2f6f6d);
-      min-width: 0;
-    }
-
-    .depr-labels {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 6px;
-      color: var(--muted);
-      font-size: .82rem;
-      text-align: center;
-    }
-
-    .cf-pattern {
-      display: grid;
-      grid-template-columns: 80px repeat(3, minmax(0, 1fr));
-      gap: 6px;
-      margin: 12px 0;
-      align-items: stretch;
-    }
-
-    .cf-pattern span {
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: #fff;
-      padding: 8px 6px;
-      text-align: center;
-      font-weight: 800;
-    }
-
-    .cf-pattern .head {
-      background: var(--soft);
-      color: var(--accent);
-    }
-
-    .cf-pattern .plus {
-      color: var(--accent);
-    }
-
-    .cf-pattern .minus {
-      color: var(--accent-2);
-    }
-
-    .compare-list {
+    .plan {
       display: grid;
       gap: 10px;
     }
 
-    .compare-row {
+    .plan-item {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.1fr);
-      gap: 8px;
-      align-items: stretch;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #fff;
-      padding: 10px;
-    }
-
-    .term-box {
-      border-radius: 6px;
-      background: var(--soft);
-      padding: 10px;
-    }
-
-    .term-box.alt {
-      background: #fff3f4;
-    }
-
-    .memory {
-      border-left: 4px solid var(--mark);
-      border-radius: 6px;
-      background: var(--soft-2);
-      padding: 10px;
-      font-weight: 800;
-    }
-
-    .term-name {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--accent);
-      font-weight: 900;
-    }
-
-    .term-aside {
-      margin-top: 16px;
-    }
-
-    .term-drill {
-      margin-top: 18px;
-    }
-
-    .drill-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 70px minmax(0, 1fr);
       gap: 10px;
-    }
-
-    .term-card {
-      margin: 0;
-    }
-
-    .term-card summary {
-      background: #fff;
-      color: var(--ink);
-    }
-
-    .term-card[open] summary {
-      background: var(--soft-2);
-    }
-
-    .hook {
-      display: inline-block;
-      margin: 2px 0 8px;
-      border-radius: 999px;
-      background: var(--soft);
-      color: var(--accent);
-      padding: 3px 9px;
-      font-size: .86rem;
-      font-weight: 900;
-    }
-
-    .answer-line {
-      margin: 8px 0 0;
-      border-left: 4px solid var(--accent);
-      padding-left: 10px;
-    }
-
-    .term-aside details {
-      border-color: #cfdedc;
-      background: #fbffff;
-    }
-
-    .term-aside summary {
-      background: var(--soft);
-    }
-
-    .tip-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .tip-item {
       border: 1px solid var(--line);
       border-radius: 8px;
       background: #fff;
       padding: 12px;
     }
 
-    .tip-item strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--accent-2);
-    }
-
-    .formula {
-      display: block;
-      width: fit-content;
-      max-width: 100%;
-      margin: 10px 0;
-      border: 1px solid #e0c569;
-      border-radius: 6px;
-      background: #fff9df;
-      padding: 8px 10px;
-      font-family: "Consolas", "Yu Gothic", monospace;
-      white-space: normal;
-    }
-
-    details {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #fff;
-      margin: 10px 0;
-      overflow: hidden;
-    }
-
-    summary {
-      cursor: pointer;
-      padding: 12px 14px;
-      font-weight: 800;
-      list-style-position: inside;
-      background: #fafafa;
-    }
-
-    details[open] summary {
-      border-bottom: 1px solid var(--line);
-      background: var(--soft);
-    }
-
-    details .answer {
-      padding: 14px 16px 16px;
-    }
-
-    .toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    button {
-      cursor: pointer;
-      border: 1px solid var(--accent);
-      border-radius: 6px;
-      background: var(--accent);
-      color: #fff;
-      padding: 8px 12px;
-      font: inherit;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    button.secondary {
-      background: #fff;
-      color: var(--accent);
-    }
-
-    .checklist {
+    .class-no {
       display: grid;
-      gap: 8px;
-      padding-left: 0;
-      list-style: none;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--soft-2);
+      font-weight: 900;
     }
 
-    .checklist label {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
+    .hamburger-menu {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 80;
+      width: min(270px, calc(100vw - 28px));
+    }
+
+    .hamburger-menu summary {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      margin-left: auto;
+      cursor: pointer;
+      list-style: none;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: #fff;
-      padding: 10px 12px;
+      box-shadow: var(--shadow);
+      padding: 0;
     }
 
-    input[type="checkbox"] {
-      width: 1.1rem;
-      height: 1.1rem;
-      margin-top: .32rem;
-      accent-color: var(--accent);
-      flex: 0 0 auto;
+    .hamburger-menu summary::-webkit-details-marker { display: none; }
+
+    .hamburger-icon,
+    .hamburger-icon::before,
+    .hamburger-icon::after {
+      display: block;
+      width: 20px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--ink);
+      content: "";
     }
 
-    .tag {
-      display: inline-block;
-      border-radius: 4px;
+    .hamburger-icon::before { transform: translateY(-7px); }
+    .hamburger-icon::after { transform: translateY(5px); }
+
+    .hamburger-panel {
+      margin-top: 8px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+      padding: 8px;
+    }
+
+    .hamburger-panel a {
+      display: block;
+      border-radius: 6px;
+      padding: 9px 10px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .hamburger-panel a:hover,
+    .hamburger-panel a.current {
       background: var(--soft);
       color: var(--accent);
-      padding: 1px 7px;
-      font-size: .82rem;
-      font-weight: 800;
     }
 
     footer {
-      max-width: 1120px;
+      max-width: 1080px;
       margin: 0 auto 32px;
       padding: 0 24px;
       color: var(--muted);
@@ -614,913 +236,98 @@
     }
 
     @media (max-width: 820px) {
-      .layout {
-        display: block;
-        padding-inline: 16px;
-      }
-
-      .hero {
-        padding-inline: 16px;
-      }
-
-      nav {
-        position: static;
-        margin-bottom: 18px;
-      }
-
-      .grid,
-      .visual-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .compare-row,
-      .tip-grid,
-      .drill-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .operator {
-        text-align: center;
-      }
-
-      h1 {
-        font-size: 1.65rem;
-      }
-
-      section {
-        padding: 18px;
-      }
-    }
-
-    @media print {
-      body {
-        background: #fff;
-        color: #000;
-      }
-
-      header, section, nav {
-        box-shadow: none;
-      }
-
-      nav, .toolbar {
-        display: none;
-      }
-
-      .layout {
-        display: block;
-        max-width: none;
-        padding: 0;
-      }
-
-      .hero, footer {
-        max-width: none;
-      }
-
-      section {
-        break-inside: avoid;
-        border-color: #bbb;
-        margin: 0 0 12px;
-      }
-
-      details {
-        break-inside: avoid;
-      }
-
-      details:not([open]) .answer {
-        display: block;
-      }
+      .hero, main { padding-inline: 16px; }
+      h1 { font-size: 1.7rem; }
+      .cards { grid-template-columns: 1fr; }
+      .plan-item { grid-template-columns: 1fr; }
+      .class-no { min-height: 44px; }
     }
   </style>
 </head>
 <body>
+  <details class="hamburger-menu">
+    <summary aria-label="ページメニュー"><span class="hamburger-icon"></span></summary>
+    <div class="hamburger-panel">
+      <a href="index.html" class="current">まとめ</a>
+      <a href="test1.html">第1回テスト</a>
+      <a href="test2.html">第2回テスト</a>
+      <a href="test3.html">第3回テスト</a>
+    </div>
+  </details>
+
   <header>
     <div class="hero">
-      <p class="eyebrow">第2回から第6回 財務会計1から5</p>
-      <h1>会計学 第1回授業内テスト対策</h1>
-      <p class="lead">30分の記述式向けに、覚える核と出そうな問題をまとめた復習ページです。細かい仕訳より、用語の意味と「なぜ必要か」を説明できる状態を目指します。</p>
+      <p class="eyebrow">会計学 復習ページ</p>
+      <h1>会計のテスト用</h1>
+      <p class="lead">第1回から第3回までの授業内テスト対策をまとめる入口です。第2回・第3回ページは、まず授業計画画像から読める内容で仮置きし、あとから講義資料に沿った内容へ差し替えます。</p>
     </div>
   </header>
 
-  <div class="layout">
-    <nav aria-label="目次">
-      <h2>目次</h2>
-      <a href="#strategy">記述の型</a>
-      <a href="#actual-test">実際に出た問題</a>
-      <a href="#visual">図で見る全体像</a>
-      <a href="#terms">用語の違い</a>
-      <a href="#term-drill">用語カード</a>
-      <a href="#must">最優先暗記</a>
-      <a href="#statements">財務諸表</a>
-      <a href="#matching">費用収益対応</a>
-      <a href="#assets">固定資産</a>
-      <a href="#liability">負債と純資産</a>
-      <a href="#cashflow">キャッシュフロー</a>
-      <a href="#questions">予想問題</a>
-      <a href="#last">直前チェック</a>
-    </nav>
+  <main>
+    <section>
+      <h2>テスト別ページ</h2>
+      <div class="cards">
+        <a class="card" href="test1.html">
+          <span class="range">第2回から第6回</span>
+          <h3>第1回テスト</h3>
+          <p>財務会計1から5。実際に出た問題、P/L・減価償却・C/F・資本維持の復習メモあり。</p>
+          <p class="status">作成済み</p>
+        </a>
+        <a class="card" href="test2.html">
+          <span class="range">第7回から第10回</span>
+          <h3>第2回テスト</h3>
+          <p>第7回の連結会計・税務会計は講義資料反映済み。第8回から第10回は仮まとめ。</p>
+          <p class="status">第7回資料反映 + 第8-10回仮置き</p>
+        </a>
+        <a class="card" href="test3.html">
+          <span class="range">第11回から第14回</span>
+          <h3>第3回テスト</h3>
+          <p>財務情報分析2、予算管理、原価計算、コスト・マネジメントの仮まとめ。</p>
+          <p class="status">授業計画ベースの仮ページ</p>
+        </a>
+      </div>
+    </section>
 
-    <main>
-      <section id="strategy">
-        <h2>記述の型</h2>
-        <div class="callout">
-          <p><strong>基本は「定義、必要性、例、違い」。</strong>この順に書くと、少し忘れていても答案の形になります。</p>
-        </div>
-        <ol>
-          <li>用語の定義を書く。</li>
-          <li>なぜ必要か、何を表すかを書く。</li>
-          <li>具体例を1つ入れる。</li>
-          <li>似た概念との違いを書く。</li>
-        </ol>
-        <p>「大まかに覚えていれば解ける」という話なら、問題は用語説明、比較、理由説明、財務諸表の読み取りが中心になりやすいです。</p>
-      </section>
+    <section>
+      <h2>作成方針</h2>
+      <div class="notice">
+        <p>第2回・第3回テスト用ページは、現時点では授業計画画像から読み取れる範囲をもとにした仮ページです。講義資料が揃ったら、各回の資料に沿って用語、図、予想問題、実出題ログを差し替えます。</p>
+      </div>
+    </section>
 
-      <section id="actual-test">
-        <h2>実際に出た問題</h2>
-        <p>第1回授業内テストで出た内容のメモです。次に復習するときは、ここを最優先で見ると効率がよいです。</p>
-
-        <details open>
-          <summary>問1. P/Lを読んで言えることを2つ以上述べる</summary>
-          <div class="answer">
-            <p>P/Lの読み取りでは、単に数字を写すのではなく、利益の段階ごとに何が言えるかを書く。</p>
+    <section>
+      <h2>授業計画から見える範囲</h2>
+      <div class="plan">
+        <div class="plan-item">
+          <div class="class-no">7-10</div>
+          <div>
+            <h3>第2回テスト想定範囲</h3>
             <ul>
-              <li>売上高が増減していれば、営業規模が拡大・縮小していると言える。</li>
-              <li>売上総利益を見ると、売上原価を引いた後にどれだけ利益が残るかが分かる。</li>
-              <li>営業利益を見ると、本業でどれだけ稼げているかが分かる。</li>
-              <li>経常利益を見ると、本業以外の通常活動も含めた収益力が分かる。</li>
-              <li>営業利益と経常利益の差が大きければ、営業外収益・費用の影響が大きいと言える。</li>
+              <li>第7回: 授業内テスト1、連結会計・税務会計</li>
+              <li>第8回: 企業戦略、企業価値最大化</li>
+              <li>第9回: 企業価値評価</li>
+              <li>第10回: 財務情報分析の安全性・生産性・成長性</li>
             </ul>
-            <div class="callout">
-              <p><strong>今回のP/Lで言えたこと:</strong> 売上原価は大きく変化していない一方で利益が増加していたため、原価負担を大きく増やさずに利益を伸ばしていると読める。また、営業外損益のマイナス幅が拡大していたため、本業以外の通常活動が利益を押し下げる影響が大きくなっていると読める。</p>
-            </div>
-            <p><strong>答案で安全な言い方:</strong> 「本業以外で赤字が拡大した」でも意味は通るが、会計用語としては「営業外損益の赤字幅が拡大した」「営業外損益が利益を押し下げている」と書くと正確。</p>
-          </div>
-        </details>
-
-        <details open>
-          <summary>問2. 減価償却をする理由</summary>
-          <div class="answer">
-            <p>固定資産は複数期間にわたって収益獲得に役立つため、取得した期に全額を費用にすると、その期だけ費用が大きくなり期間損益がゆがむ。そこで、使用する期間にわたって価値減少分を費用配分し、各期の収益と対応させるために減価償却を行う。</p>
-          </div>
-        </details>
-
-        <details open>
-          <summary>問3. C/Fを作成・確認する理由と、営業+/投資-/財務+から言えること</summary>
-          <div class="answer">
-            <p>C/Fを確認する理由は、会計利益が発生主義や見積りを含む一方で、現金の動きは企業の支払能力や資金繰りを直接示すからである。利益が出ていても現金が不足すれば黒字倒産が起こりうるため、現金の増減を営業・投資・財務に分けて見る必要がある。</p>
-            <p><strong>営業CF + / 投資CF - / 財務CF +</strong> の場合、本業では現金を稼げており、同時に設備投資などで現金を使っている。さらに財務CFがプラスなので、借入や株式発行などで外部から資金調達している可能性がある。つまり、本業で稼ぎつつ、外部資金も使って積極的に投資している状態と読める。</p>
-          </div>
-        </details>
-
-        <details open>
-          <summary>問4. 資本を充実・維持すべき理由</summary>
-          <div class="answer">
-            <p>株式会社では、株主は原則として出資額の範囲でしか責任を負わない有限責任である。そのため、会社の債権者にとっては、会社財産が返済を受けるための重要なよりどころになる。もし資本を自由に配当などで流出させると、債権者保護が弱くなり、会社の信用や継続性も損なわれる。したがって、会社財産の基盤として資本を充実・維持する必要がある。</p>
-          </div>
-        </details>
-      </section>
-
-      <section id="visual">
-        <h2>図で見る全体像</h2>
-        <p>文章を読む前に、まず形だけつかむための図です。試験ではこの図を頭の中で再現できると書きやすくなります。</p>
-        <div class="visual-grid">
-          <article class="diagram">
-            <h3>B/Sは「集めたお金」と「使い道」</h3>
-            <div class="balance-diagram" aria-label="貸借対照表の構造">
-              <div class="block assets">資産<small>資金の使い道</small></div>
-              <div class="stack">
-                <div class="block">負債<small>返す必要あり</small></div>
-                <div class="block">純資産<small>返す必要なし</small></div>
-              </div>
-            </div>
-            <p>左は「何に使ったか」、右は「どこから集めたか」。資産 = 負債 + 純資産。</p>
-          </article>
-
-          <article class="diagram">
-            <h3>P/Lは「稼ぎ」から「費用」を引く</h3>
-            <div class="pl-steps" aria-label="損益計算書の考え方">
-              <div class="step">収益<small>売上など</small></div>
-              <div class="operator">-</div>
-              <div class="step">費用<small>原価・給料など</small></div>
-              <div class="operator">=</div>
-              <div class="step profit">利益<small>経営成績</small></div>
-            </div>
-            <p>売上総利益、営業利益、経常利益は、費用をどこまで引いたかの違い。</p>
-          </article>
-
-          <article class="diagram">
-            <h3>費用収益対応は「当期分だけ」</h3>
-            <div class="timeline" aria-label="費用収益対応のタイムライン">
-              <div class="node">支払日</div>
-              <div class="node">決算日</div>
-              <div class="node">次期</div>
-            </div>
-            <div class="split-note">
-              <div class="note">当期分は費用</div>
-              <div class="note next">翌期分は前払費用</div>
-            </div>
-            <p>1年分を払っても、当期の費用にできるのは当期に対応する部分だけ。</p>
-          </article>
-
-          <article class="diagram">
-            <h3>減価償却は「一気に費用にしない」</h3>
-            <div class="depr-bars" aria-label="減価償却の費用配分">
-              <div class="depr-bar" style="height: 110px"></div>
-              <div class="depr-bar" style="height: 88px"></div>
-              <div class="depr-bar" style="height: 66px"></div>
-              <div class="depr-bar" style="height: 44px"></div>
-              <div class="depr-bar" style="height: 22px"></div>
-            </div>
-            <div class="depr-labels">
-              <span>取得時</span>
-              <span>1年後</span>
-              <span>2年後</span>
-              <span>3年後</span>
-              <span>4年後</span>
-            </div>
-            <p>固定資産の価値減少を、使う期間に分けて費用化する。土地は原則として減価償却しない。</p>
-          </article>
-
-          <article class="diagram">
-            <h3>C/Fは「現金の動き」を3つに分ける</h3>
-            <div class="cf-pattern" aria-label="キャッシュフローのパターン">
-              <span class="head">型</span>
-              <span class="head">営業</span>
-              <span class="head">投資</span>
-              <span class="head">財務</span>
-              <span>優良</span>
-              <span class="plus">+</span>
-              <span class="minus">-</span>
-              <span class="minus">-</span>
-              <span>成長</span>
-              <span class="minus">-</span>
-              <span class="minus">-</span>
-              <span class="plus">+</span>
-              <span>拡大型</span>
-              <span class="plus">+</span>
-              <span class="minus">-</span>
-              <span class="plus">+</span>
-            </div>
-            <p>営業で稼げているか、投資に使っているか、借入や返済をしているかを見る。営業+・投資-・財務+は、本業で稼ぎつつ外部資金も使って投資している形。</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="terms">
-        <h2>用語の違い早見表</h2>
-        <p>似ている用語は、細かく覚える前に「何を見ている言葉か」を分けると入りやすいです。</p>
-        <div class="compare-list">
-          <div class="compare-row">
-            <div class="term-box">
-              <span class="term-name">会計責任説</span>
-              経営者が株主などへ結果を報告する。
-            </div>
-            <div class="term-box alt">
-              <span class="term-name">意思決定有用説</span>
-              投資家や債権者の判断に役立つ情報を出す。
-            </div>
-            <div class="memory">報告責任か、判断材料か。</div>
-          </div>
-
-          <div class="compare-row">
-            <div class="term-box">
-              <span class="term-name">発生主義</span>
-              現金ではなく、取引や原因が発生した時点で認識。
-            </div>
-            <div class="term-box alt">
-              <span class="term-name">現金主義</span>
-              現金を受け取った時点、支払った時点で認識。
-            </div>
-            <div class="memory">発生したか、現金が動いたか。</div>
-          </div>
-
-          <div class="compare-row">
-            <div class="term-box">
-              <span class="term-name">B/S</span>
-              一定時点の財政状態。資産・負債・純資産。
-            </div>
-            <div class="term-box alt">
-              <span class="term-name">P/L</span>
-              一定期間の経営成績。収益・費用・利益。
-            </div>
-            <div class="memory">B/Sは写真、P/Lは動画。</div>
-          </div>
-
-          <div class="compare-row">
-            <div class="term-box">
-              <span class="term-name">負債</span>
-              借入金など、返済義務のある資金。
-            </div>
-            <div class="term-box alt">
-              <span class="term-name">純資産</span>
-              株主からの出資や利益の蓄積。返済義務はない。
-            </div>
-            <div class="memory">返すお金か、返さなくてよいお金か。</div>
-          </div>
-
-          <div class="compare-row">
-            <div class="term-box">
-              <span class="term-name">売上総利益</span>
-              売上高から売上原価を引いた利益。
-            </div>
-            <div class="term-box alt">
-              <span class="term-name">営業利益</span>
-              売上総利益から販売費及び一般管理費を引いた利益。
-            </div>
-            <div class="memory">商品でどれだけ残ったか、本業でどれだけ残ったか。</div>
-          </div>
-
-          <div class="compare-row">
-            <div class="term-box">
-              <span class="term-name">営業利益</span>
-              本業の利益。
-            </div>
-            <div class="term-box alt">
-              <span class="term-name">経常利益</span>
-              本業以外の通常活動も含めた利益。
-            </div>
-            <div class="memory">本業だけか、通常活動全体か。</div>
-          </div>
-
-          <div class="compare-row">
-            <div class="term-box">
-              <span class="term-name">前払費用</span>
-              先に払ったが、翌期以降の費用になるもの。
-            </div>
-            <div class="term-box alt">
-              <span class="term-name">未払費用</span>
-              当期の費用だが、まだ支払っていないもの。
-            </div>
-            <div class="memory">払ったけど未来か、まだ払ってないけど当期か。</div>
-          </div>
-
-          <div class="compare-row">
-            <div class="term-box">
-              <span class="term-name">資本的支出</span>
-              価値を増やす、または耐用年数を延ばす支出。
-            </div>
-            <div class="term-box alt">
-              <span class="term-name">収益的支出</span>
-              現状維持のための支出。その期の費用。
-            </div>
-            <div class="memory">パワーアップか、メンテナンスか。</div>
-          </div>
-
-          <div class="compare-row">
-            <div class="term-box">
-              <span class="term-name">ファイナンス・リース</span>
-              実質的な売買取引。資産・負債をB/Sに載せる。
-            </div>
-            <div class="term-box alt">
-              <span class="term-name">オペレーティング・リース</span>
-              賃貸借取引。リース料を費用にする。
-            </div>
-            <div class="memory">買ったように扱うか、借りたように扱うか。</div>
-          </div>
-
-          <div class="compare-row">
-            <div class="term-box">
-              <span class="term-name">のれん</span>
-              買収対価が識別可能純資産を超える部分。
-            </div>
-            <div class="term-box alt">
-              <span class="term-name">自己創設のれん</span>
-              自社で生まれた高収益力。客観測定が難しく資産計上不可。
-            </div>
-            <div class="memory">買った価値は載る。自分で作った雰囲気価値は載らない。</div>
-          </div>
-
-          <div class="compare-row">
-            <div class="term-box">
-              <span class="term-name">営業CF</span>
-              本業や日常営業による現金の動き。
-            </div>
-            <div class="term-box alt">
-              <span class="term-name">投資CF・財務CF</span>
-              投資は将来のための支出や回収。財務は借入・返済・株式発行など。
-            </div>
-            <div class="memory">稼ぐ、使う、集める・返す。</div>
           </div>
         </div>
-        <aside class="term-aside" aria-label="単語にまつわる雑学">
-          <details>
-            <summary>単語にまつわる雑学を開く</summary>
-            <div class="answer">
-              <div class="tip-grid">
-                <div class="tip-item">
-                  <strong>会計</strong>
-                  「会」は集める、「計」ははかる・数えるという感じ。会社の出来事を集めて、数字で測る学問だと思うと少し軽くなります。
-                </div>
-                <div class="tip-item">
-                  <strong>アカウンタビリティ</strong>
-                  account には「説明する」「勘定する」の両方の感覚があります。だから会計は、単に計算するだけでなく、説明責任とつながります。
-                </div>
-                <div class="tip-item">
-                  <strong>Balance Sheet</strong>
-                  balance は天秤のように釣り合うイメージ。B/Sは「資産」と「負債＋純資産」が左右で対応するので、バランスの表です。
-                </div>
-                <div class="tip-item">
-                  <strong>Profit and Loss</strong>
-                  P/Lは文字通り「もうけと損」。どこで利益が残り、どこで費用に削られるかを見る成績表です。
-                </div>
-                <div class="tip-item">
-                  <strong>キャッシュ・フロー</strong>
-                  flow は「流れ」。B/Sが水槽にたまった水の量だとすると、C/Fは水がどこから入り、どこへ出たかを見る表です。
-                </div>
-                <div class="tip-item">
-                  <strong>Going Concern</strong>
-                  concern はここでは「心配」ではなく「事業体」の意味。Going concern は「これからも続いていく会社」という前提です。
-                </div>
-                <div class="tip-item">
-                  <strong>売掛金・買掛金</strong>
-                  「掛け」は昔の「ツケ」に近い感覚。売掛金は売った側の未回収、買掛金は買った側の未払いです。
-                </div>
-                <div class="tip-item">
-                  <strong>棚卸資産</strong>
-                  棚にある商品をおろして数える、というイメージから入ると覚えやすいです。売れ残りは費用ではなく、まだ資産です。
-                </div>
-                <div class="tip-item">
-                  <strong>前払・未払</strong>
-                  「前」は先に払った、「未」はまだ払っていない。前払費用は未来の分、未払費用は当期の分です。
-                </div>
-                <div class="tip-item">
-                  <strong>減価償却</strong>
-                  「減価」は価値が減ること。「償却」は少しずつ消していく感じ。高い固定資産を使用期間で少しずつ費用にします。
-                </div>
-                <div class="tip-item">
-                  <strong>定額法・定率法</strong>
-                  定額法は毎年同じ額。定率法は残っている価値に率をかけるので、最初の方が大きく、後になるほど小さくなります。
-                </div>
-                <div class="tip-item">
-                  <strong>のれん</strong>
-                  店先の暖簾は、店の信用・評判・常連客の象徴でした。会計の「のれん」も、買収で得たブランド力や信用のような目に見えない強みを表します。
-                </div>
-                <div class="tip-item">
-                  <strong>引当金</strong>
-                  「引き当てる」は、将来のために金額をあてがう感覚。まだ払っていなくても、原因が当期にあるなら今の負担として見積もります。
-                </div>
-                <div class="tip-item">
-                  <strong>リース</strong>
-                  lease は長めに使う権利を借りるイメージ。ファイナンス・リースは、ただ借りるより「ほぼ買った」に近い扱いになります。
-                </div>
-                <div class="tip-item">
-                  <strong>社債</strong>
-                  会社が発行する借金の証券です。銀行から借りる借入金と違い、広く投資家からお金を集めるイメージです。
-                </div>
-                <div class="tip-item">
-                  <strong>経常利益</strong>
-                  「経常」は、毎期くり返し起こる通常の活動という雰囲気。本業だけでなく、利息など通常の金融活動も含みます。
-                </div>
-              </div>
-            </div>
-          </details>
-        </aside>
-
-        <div id="term-drill" class="term-drill">
-          <h3>用語カード</h3>
-          <p>まず用語名を見て、頭の中で説明してから開く練習用です。</p>
-          <div class="drill-grid">
-            <details class="term-card">
-              <summary>会計責任説</summary>
-              <div class="answer">
-                <span class="hook">報告する責任</span>
-                <p>経営者が株主などへ、任された経営の結果を説明するという考え方。</p>
-                <p class="answer-line">記述では「契約支援」「利害調整」と結びつける。</p>
-              </div>
-            </details>
-
-            <details class="term-card">
-              <summary>意思決定有用説</summary>
-              <div class="answer">
-                <span class="hook">判断材料を出す</span>
-                <p>投資家や債権者が、投資・融資を判断するために役立つ情報を提供する考え方。</p>
-                <p class="answer-line">記述では「投資家」「債権者」「意思決定支援」を入れる。</p>
-              </div>
-            </details>
-
-            <details class="term-card">
-              <summary>発生主義</summary>
-              <div class="answer">
-                <span class="hook">現金より原因</span>
-                <p>現金の入出金ではなく、収益・費用が発生した時点で認識する考え方。</p>
-                <p class="answer-line">現金主義との違いを必ず書く。</p>
-              </div>
-            </details>
-
-            <details class="term-card">
-              <summary>継続企業の前提</summary>
-              <div class="answer">
-                <span class="hook">会社は続く前提</span>
-                <p>企業が将来も活動を続ける前提で会計処理すること。</p>
-                <p class="answer-line">会計期間、決算日、発生主義につなげる。</p>
-              </div>
-            </details>
-
-            <details class="term-card">
-              <summary>貸借対照表 B/S</summary>
-              <div class="answer">
-                <span class="hook">会社の写真</span>
-                <p>一定時点の財政状態を示す。資産、負債、純資産を見る。</p>
-                <p class="answer-line">資産は使い道、負債・純資産は集め方。</p>
-              </div>
-            </details>
-
-            <details class="term-card">
-              <summary>損益計算書 P/L</summary>
-              <div class="answer">
-                <span class="hook">会社の動画</span>
-                <p>一定期間の経営成績を示す。収益、費用、利益を見る。</p>
-                <p class="answer-line">売上から費用を引いて、段階的に利益を出す。</p>
-              </div>
-            </details>
-
-            <details class="term-card">
-              <summary>売上総利益</summary>
-              <div class="answer">
-                <span class="hook">粗利</span>
-                <p>売上高から売上原価を引いた利益。</p>
-                <p class="answer-line">商品そのものから、どれだけ利益が残ったか。</p>
-              </div>
-            </details>
-
-            <details class="term-card">
-              <summary>営業利益</summary>
-              <div class="answer">
-                <span class="hook">本業の利益</span>
-                <p>売上総利益から販売費及び一般管理費を引いた利益。</p>
-                <p class="answer-line">会社の本業の強さを見る。</p>
-              </div>
-            </details>
-
-            <details class="term-card">
-              <summary>経常利益</summary>
-              <div class="answer">
-                <span class="hook">いつもの活動の利益</span>
-                <p>営業利益に営業外損益を加減した利益。</p>
-                <p class="answer-line">本業だけでなく、通常発生する金融収益・費用も含む。</p>
-              </div>
-            </details>
-
-            <details class="term-card">
-              <summary>費用収益対応の原則</summary>
-              <div class="answer">
-                <span class="hook">当期の売上に当期の費用</span>
-                <p>当期の収益に対応する費用だけを当期費用にする考え方。</p>
-                <p class="answer-line">前払費用の例を出せると強い。</p>
-              </div>
-            </details>
-
-            <details class="term-card">
-              <summary>実現主義</summary>
-              <div class="answer">
-                <span class="hook">提供して、対価を受ける</span>
-                <p>財やサービスを提供し、現金や売掛金などの貨幣性資産を受け入れた時点で収益を認識する考え方。</p>
-                <p class="answer-line">現金受取時ではなく、売掛金でもよい。</p>
-              </div>
-            </details>
-
-            <details class="term-card">
-              <summary>減価償却</summary>
-              <div class="answer">
-                <span class="hook">固定資産を期間で割る</span>
-                <p>建物や備品などの価値減少分を、使う期間にわたって費用配分する手続き。</p>
-                <p class="answer-line">取得時に全額費用にしない理由を書く。</p>
-              </div>
-            </details>
-
-            <details class="term-card">
-              <summary>資本的支出</summary>
-              <div class="answer">
-                <span class="hook">パワーアップ</span>
-                <p>固定資産の価値を増やす、または耐用年数を延ばす支出。</p>
-                <p class="answer-line">建物の増築や改築のイメージ。</p>
-              </div>
-            </details>
-
-            <details class="term-card">
-              <summary>収益的支出</summary>
-              <div class="answer">
-                <span class="hook">メンテナンス</span>
-                <p>現状維持のための修理など、その期の費用として処理する支出。</p>
-                <p class="answer-line">原状回復の修理のイメージ。</p>
-              </div>
-            </details>
-
-            <details class="term-card">
-              <summary>のれん</summary>
-              <div class="answer">
-                <span class="hook">買った信用・ブランド</span>
-                <p>買収対価が、取得した識別可能純資産の価値を上回る場合の超過額。</p>
-                <p class="answer-line">自己創設のれんは客観測定が難しいため資産計上できない。</p>
-              </div>
-            </details>
-
-            <details class="term-card">
-              <summary>引当金</summary>
-              <div class="answer">
-                <span class="hook">将来の支出を今見積もる</span>
-                <p>将来の特定の費用・損失について、可能性が高く金額を合理的に見積もれる場合に計上するもの。</p>
-                <p class="answer-line">製品保証、退職給付、修繕、貸倒などが例。</p>
-              </div>
-            </details>
-
-            <details class="term-card">
-              <summary>ファイナンス・リース</summary>
-              <div class="answer">
-                <span class="hook">ほぼ買った</span>
-                <p>解約不能かつフルペイアウトのリース。資産・負債をB/Sに計上する。</p>
-                <p class="answer-line">P/Lでは減価償却費と支払利息。</p>
-              </div>
-            </details>
-
-            <details class="term-card">
-              <summary>キャッシュ・フロー計算書 C/F</summary>
-              <div class="answer">
-                <span class="hook">現金の動き</span>
-                <p>営業・投資・財務活動ごとの現金の増減を示す財務諸表。</p>
-                <p class="answer-line">黒字倒産を避ける視点と結びつける。</p>
-              </div>
-            </details>
+        <div class="plan-item">
+          <div class="class-no">11-14</div>
+          <div>
+            <h3>第3回テスト想定範囲</h3>
+            <ul>
+              <li>第11回: 授業内テスト2、財務情報分析2、その他の財務情報分析</li>
+              <li>第12回: 予算管理</li>
+              <li>第13回: 原価計算の基礎知識</li>
+              <li>第14回: コスト・マネジメント、原価低減</li>
+            </ul>
           </div>
         </div>
-      </section>
-
-      <section id="must">
-        <h2>最優先暗記</h2>
-        <div class="grid">
-          <article class="mini">
-            <h3>財務会計の目的</h3>
-            <p><strong>会計責任説</strong>は、経営者が株主などに経営結果を報告する責任を果たす考え方。契約支援、利害調整の機能をもつ。</p>
-            <p><strong>意思決定有用説</strong>は、投資家や債権者の投資・融資判断に役立つ情報を提供する考え方。</p>
-          </article>
-          <article class="mini">
-            <h3>発生主義</h3>
-            <p>現金の入出金ではなく、取引や原因が発生した時点で収益・費用を認識する考え方。</p>
-            <p>現金主義は、現金を受け取った時点、支払った時点で認識する。</p>
-          </article>
-          <article class="mini">
-            <h3>継続企業の前提</h3>
-            <p>企業が将来も活動を続ける前提で会計処理を行うこと。この前提があるから、会計期間と決算日を設定できる。</p>
-          </article>
-          <article class="mini">
-            <h3>会計公準</h3>
-            <p>企業実体の公準、継続企業の公準、貨幣的評価の公準。会計で何を、どの前提で、どう測るかを決める土台。</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="statements">
-        <h2>財務諸表</h2>
-        <h3>貸借対照表 B/S</h3>
-        <p>B/Sは、一定時点の財政状態を示す。資産は資金の運用形態、負債・純資産は資金の調達源泉を表す。</p>
-        <ul>
-          <li><strong>資産</strong>: 現金、機械、土地など、会社が保有する財産や権利。</li>
-          <li><strong>負債</strong>: 借入金など、返済義務のある他人資本。</li>
-          <li><strong>純資産</strong>: 株主からの出資や利益の蓄積など、返済義務のない自己資本。</li>
-        </ul>
-        <span class="formula">自己資本比率 = 自己資本 ÷ 総資産 × 100</span>
-        <p>流動・固定の分類には、正常営業循環基準と1年基準が関係する。一般的には現金化しやすい順に並べる流動性配列法を使う。</p>
-
-        <h3>損益計算書 P/L</h3>
-        <p>P/Lは、一定期間の経営成績を示す。収益から費用を差し引き、段階的に利益を示す。</p>
-        <ul>
-          <li><strong>売上総利益</strong>: 売上高から売上原価を引いた利益。粗利。</li>
-          <li><strong>営業利益</strong>: 売上総利益から販売費及び一般管理費を引いた利益。本業の利益。</li>
-          <li><strong>経常利益</strong>: 営業利益に営業外損益を加減した、通常活動による利益。</li>
-          <li><strong>当期純利益</strong>: 税金なども差し引いた最終的な利益。</li>
-        </ul>
-      </section>
-
-      <section id="matching">
-        <h2>費用収益対応と収益認識</h2>
-        <h3>費用収益対応の原則</h3>
-        <p>当期の利益を正しく計算するために、当期の収益に対応する費用だけを当期費用にする考え方。</p>
-        <div class="callout warning">
-          <p>例: 1年分の家賃を支払っても、翌期分が含まれるなら、その部分は前払費用として資産に振り替える。</p>
-        </div>
-        <p>見越し・繰延べの4パターンは、<strong>前払費用、前受収益、未払費用、未収収益</strong>。</p>
-
-        <h3>実現主義</h3>
-        <p>収益は原則として実現主義により認識する。財またはサービスを第三者へ提供し、対価として現金や売掛金などの貨幣性資産を受け入れた時点で収益を認識する。</p>
-
-        <h3>売上原価</h3>
-        <p>売上原価は、当期に売れた商品の原価。</p>
-        <span class="formula">期首商品棚卸高 + 当期商品仕入高 - 期末商品棚卸高 = 売上原価</span>
-      </section>
-
-      <section id="assets">
-        <h2>固定資産</h2>
-        <h3>固定資産の分類</h3>
-        <ul>
-          <li><strong>有形固定資産</strong>: 建物、機械、車両、備品、土地など。</li>
-          <li><strong>無形固定資産</strong>: 特許権、商標権、ソフトウェア、のれんなど。</li>
-          <li><strong>投資その他の資産</strong>: 投資有価証券、長期貸付金など。</li>
-        </ul>
-
-        <h3>減価償却</h3>
-        <p>減価償却は、建物や備品などの価値減少分を、その資産を使用する会計期間に費用配分する手続き。取得時に全額費用にせず、毎期の収益に対応させるために必要。</p>
-        <ul>
-          <li>3要素: 取得価額、耐用年数、残存価額。</li>
-          <li>定額法: 毎期同じ金額を費用にする。</li>
-          <li>定率法: 期首未償却残高に一定率をかける。</li>
-          <li>土地は通常、使用や時の経過で価値が減少しないため減価償却しない。</li>
-        </ul>
-
-        <h3>資本的支出と収益的支出</h3>
-        <p><strong>資本的支出</strong>は、固定資産の価値を増加させる、または耐用年数を延長する支出。資産に加える。例は建物の増築。</p>
-        <p><strong>収益的支出</strong>は、現状維持のための修理など、その期の費用として処理する支出。例は原状回復の修理。</p>
-
-        <h3>リース取引</h3>
-        <p><strong>ファイナンス・リース</strong>は、解約不能かつフルペイアウトのリース。実質的な売買取引として、資産・負債をB/Sに計上する。</p>
-        <p><strong>オペレーティング・リース</strong>は、ファイナンス・リース以外。賃貸借取引として、リース料を費用処理する。</p>
-
-        <h3>のれん</h3>
-        <p>のれんは、買収時に支払った対価が、取得した識別可能純資産の価値を上回る場合の超過額。高収益力、ノウハウ、相乗効果などを反映する。自己創設のれんは客観的に測定できないため資産計上できない。</p>
-      </section>
-
-      <section id="liability">
-        <h2>負債と純資産</h2>
-        <h3>負債</h3>
-        <p>負債には、支払手形、買掛金、借入金、社債、リース債務などがある。支払手形、買掛金、前受金などは無利子負債。借入金、社債、リース債務などは有利子負債。</p>
-
-        <h3>引当金</h3>
-        <p>引当金は、将来の特定の費用・損失について、発生可能性が高く、金額を合理的に見積もれる場合に計上する。</p>
-        <ul>
-          <li>将来の特定の費用又は損失である。</li>
-          <li>当期以前の事象に起因する。</li>
-          <li>発生可能性が高い。</li>
-          <li>金額を合理的に見積もれる。</li>
-        </ul>
-        <p>代表例は、製品保証引当金、退職給付引当金、修繕引当金、貸倒引当金。貸倒引当金は、売掛金などの回収不能見込額として売上債権から控除される。</p>
-
-        <h3>純資産</h3>
-        <ul>
-          <li><strong>資本金</strong>: 株主が会社に拠出した金額。</li>
-          <li><strong>資本剰余金</strong>: 株主の拠出額のうち資本金にならなかった部分。</li>
-          <li><strong>利益剰余金</strong>: 過去の利益の蓄積。</li>
-        </ul>
-        <p>資本と利益の区分は重要。会社財産を守るため、何でも配当財源にできるわけではない。</p>
-        <div class="callout">
-          <p><strong>資本を充実・維持すべき理由:</strong> 株主は有限責任であり、債権者は原則として株主個人の財産には請求できない。そのため、会社財産そのものが債権者保護のよりどころになる。資本を過度に社外流出させないことで、会社の信用と継続性を守る。</p>
-        </div>
-      </section>
-
-      <section id="cashflow">
-        <h2>キャッシュ・フロー計算書</h2>
-        <p>会計利益は発生主義に基づき、見積りや判断を含む。利益が出ていても現金が不足すれば黒字倒産が起こるため、現金の動きを示すC/F計算書が必要になる。</p>
-        <ul>
-          <li><strong>営業活動CF</strong>: 商品販売、仕入、給料支払いなど、本業や日常営業による現金の増減。</li>
-          <li><strong>投資活動CF</strong>: 設備投資、子会社投資、固定資産売却などによる現金の増減。</li>
-          <li><strong>財務活動CF</strong>: 借入、返済、株式発行、配当などによる現金の増減。</li>
-        </ul>
-        <p><strong>直接法</strong>は現金収入・支出をそのまま示す。<strong>間接法</strong>は利益を出発点として、売掛金などの増減を調整して営業CFを求める。実務では間接法が多い。</p>
-        <div class="grid">
-          <article class="mini">
-            <h3><span class="tag">優良企業</span></h3>
-            <p>営業CFプラス、投資CFマイナス、財務CFマイナス。稼いで投資し、返済もしている。</p>
-          </article>
-          <article class="mini">
-            <h3><span class="tag">成長企業</span></h3>
-            <p>営業CFマイナス、投資CFマイナス、財務CFプラス。外部調達しながら投資している。</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="questions">
-        <h2>予想問題</h2>
-        <div class="toolbar">
-          <button type="button" id="openAll">解答をすべて開く</button>
-          <button type="button" class="secondary" id="closeAll">解答を閉じる</button>
-        </div>
-
-        <details>
-          <summary>1. 財務会計の目的について、会計責任説と意思決定有用説の違いを説明しなさい。</summary>
-          <div class="answer">
-            <p>会計責任説は、経営者が株主などに対して、委託された経営の結果を報告する責任を果たすという考え方である。契約支援や利害調整の機能をもつ。意思決定有用説は、投資家や債権者が投資・融資などの経済的意思決定を行うために役立つ情報を提供するという考え方である。</p>
-          </div>
-        </details>
-
-        <details>
-          <summary>2. 発生主義会計とは何か。現金主義との違いを説明しなさい。</summary>
-          <div class="answer">
-            <p>発生主義は、現金の入出金ではなく、取引や原因が発生した時点で収益・費用を認識する考え方である。現金主義は、現金を受け取った時点、支払った時点で認識する。発生主義により、当期の収益と費用を対応させ、期間損益を適切に計算できる。</p>
-          </div>
-        </details>
-
-        <details>
-          <summary>3. 継続企業の前提が会計期間や決算日とどのように関係するか説明しなさい。</summary>
-          <div class="answer">
-            <p>継続企業の前提とは、企業が将来も活動を継続するという前提である。企業活動が続くからこそ、それを一定期間で区切る会計期間が設定され、その終わりとして決算日が生まれる。決算日の前後で収益・費用をどの期間に属させるかを判断するため、発生主義が必要になる。</p>
-          </div>
-        </details>
-
-        <details>
-          <summary>4. 貸借対照表と損益計算書の違いを説明しなさい。</summary>
-          <div class="answer">
-            <p>貸借対照表は、一定時点の財政状態を示す財務諸表であり、資産、負債、純資産を表示する。資産は資金の運用形態、負債・純資産は資金の調達源泉を示す。損益計算書は、一定期間の経営成績を示し、収益から費用を差し引いて利益を計算する。</p>
-          </div>
-        </details>
-
-        <details>
-          <summary>5. 売上総利益、営業利益、経常利益の意味を説明しなさい。</summary>
-          <div class="answer">
-            <p>売上総利益は、売上高から売上原価を差し引いた利益で、粗利とも呼ばれる。営業利益は、売上総利益から販売費及び一般管理費を差し引いた利益で、本業の利益を示す。経常利益は、営業利益に営業外収益・営業外費用を加減した利益で、企業の通常の活動による利益を示す。</p>
-          </div>
-        </details>
-
-        <details>
-          <summary>6. 費用収益対応の原則について、前払費用の例を用いて説明しなさい。</summary>
-          <div class="answer">
-            <p>費用収益対応の原則は、当期の収益に対応する費用だけを当期費用として計上し、当期の利益を正しく計算する考え方である。例えば1年分の家賃を支払っても、翌期分が含まれる場合、その部分は当期費用ではなく前払費用として資産に振り替える。</p>
-          </div>
-        </details>
-
-        <details>
-          <summary>7. 収益認識における実現主義を説明しなさい。</summary>
-          <div class="answer">
-            <p>実現主義とは、財またはサービスを第三者へ提供し、対価として現金や売掛金などの貨幣性資産を受け入れた時点で収益を認識する考え方である。販売前に収益を認識すると客観性に問題があり、現金回収まで遅らせると業績を適切に示しにくいため、販売時点が原則になる。</p>
-          </div>
-        </details>
-
-        <details>
-          <summary>8. 減価償却とは何か。なぜ必要かを説明しなさい。</summary>
-          <div class="answer">
-            <p>減価償却は、建物や備品などの価値減少分を、その資産を使用する会計期間に費用配分する手続きである。固定資産は複数期間にわたって収益獲得に貢献するため、取得時に全額費用にすると期間損益がゆがむ。毎期の収益に対応させて費用化することで、適切な利益計算ができる。</p>
-          </div>
-        </details>
-
-        <details>
-          <summary>9. ファイナンス・リース取引とオペレーティング・リース取引の違いを説明しなさい。</summary>
-          <div class="answer">
-            <p>ファイナンス・リースは、解約不能でフルペイアウトのリースであり、実質的には売買取引に近い。借手はリース資産とリース債務をB/Sに計上し、P/Lでは減価償却費と支払利息を計上する。オペレーティング・リースはファイナンス・リース以外で、賃貸借取引としてリース料を費用処理する。</p>
-          </div>
-        </details>
-
-        <details>
-          <summary>10. のれんとは何か。自己創設のれんが資産計上できない理由も説明しなさい。</summary>
-          <div class="answer">
-            <p>のれんは、買収時に支払った対価が、取得した識別可能純資産の価値を上回る場合の超過額である。高収益力、ノウハウ、相乗効果などを反映していると考えられる。自社で生み出した高収益力は客観的に測定しにくいため、自己創設のれんは資産計上できない。</p>
-          </div>
-        </details>
-
-        <details>
-          <summary>11. 引当金の要件と具体例を説明しなさい。</summary>
-          <div class="answer">
-            <p>引当金は、将来の特定の費用・損失であり、当期以前の事象に起因し、発生可能性が高く、金額を合理的に見積もれる場合に計上する。具体例として、製品保証引当金、退職給付引当金、修繕引当金、貸倒引当金がある。</p>
-          </div>
-        </details>
-
-        <details>
-          <summary>12. キャッシュ・フロー計算書が必要な理由を、黒字倒産と関連させて説明しなさい。</summary>
-          <div class="answer">
-            <p>会計利益は発生主義に基づき、見積りや判断を含む。利益が出ていても、現金回収が遅れたり支払いが先に発生したりすると、資金繰りに失敗して黒字倒産が起こる。C/F計算書は、営業・投資・財務活動ごとの現金の増減を示し、企業の資金状態を把握するために必要である。</p>
-          </div>
-        </details>
-
-        <details>
-          <summary>13. 営業活動CF、投資活動CF、財務活動CFの違いを説明しなさい。</summary>
-          <div class="answer">
-            <p>営業活動CFは、商品販売や仕入、給料支払いなど、本業や日常営業による現金の増減である。投資活動CFは、設備投資、投資有価証券、子会社投資、固定資産売却などによる現金の増減である。財務活動CFは、借入、返済、株式発行、配当などによる現金の増減である。</p>
-          </div>
-        </details>
-
-        <details>
-          <summary>14. 営業CFプラス、投資CFマイナス、財務CFマイナスの企業はどのような状態と考えられるか。</summary>
-          <div class="answer">
-            <p>営業活動で現金を稼ぎ、その資金を将来の利益獲得のための投資に使い、さらに借入返済や配当も行っている状態である。したがって、稼いで投資し、返済もしている優良企業型と考えられる。</p>
-          </div>
-        </details>
-      </section>
-
-      <section id="last">
-        <h2>直前チェック</h2>
-        <ul class="checklist">
-          <li><label><input type="checkbox">会計責任説と意思決定有用説を1分で説明できる。</label></li>
-          <li><label><input type="checkbox">発生主義と現金主義の違いを言える。</label></li>
-          <li><label><input type="checkbox">B/SとP/Lの違いを言える。</label></li>
-          <li><label><input type="checkbox">売上総利益、営業利益、経常利益を区別できる。</label></li>
-          <li><label><input type="checkbox">費用収益対応の原則を前払費用の例で説明できる。</label></li>
-          <li><label><input type="checkbox">減価償却が必要な理由を説明できる。</label></li>
-          <li><label><input type="checkbox">ファイナンス・リースとオペレーティング・リースの違いを言える。</label></li>
-          <li><label><input type="checkbox">のれんと自己創設のれんを説明できる。</label></li>
-          <li><label><input type="checkbox">引当金の要件を最低3つ言える。</label></li>
-          <li><label><input type="checkbox">営業CF、投資CF、財務CFを区別できる。</label></li>
-        </ul>
-      </section>
-    </main>
-  </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>作成元: 第2回から第6回講義資料の復習メモ。試験直前は「予想問題」を声に出して答えるのがおすすめです。</p>
+    <p>資料差し替え前の仮まとめです。講義資料を読み込んだら各ページを更新します。</p>
   </footer>
-
-  <script>
-    const details = Array.from(document.querySelectorAll("#questions details"));
-    document.getElementById("openAll").addEventListener("click", () => {
-      details.forEach((item) => item.open = true);
-    });
-    document.getElementById("closeAll").addEventListener("click", () => {
-      details.forEach((item) => item.open = false);
-    });
-  </script>
 </body>
 </html>
