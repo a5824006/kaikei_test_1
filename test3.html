@@ -30,7 +30,41 @@
     .eyebrow { margin: 0 0 8px; color: var(--accent-2); font-weight: 800; }
     h1 { margin: 0; font-size: 2.05rem; line-height: 1.25; letter-spacing: 0; }
     .lead { max-width: 780px; margin: 14px 0 0; color: var(--muted); }
-    main { max-width: 1080px; margin: 0 auto; padding: 28px 24px 58px; }
+    .layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 28px;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 28px 24px 58px;
+    }
+    .side-nav {
+      position: sticky;
+      top: 16px;
+      align-self: start;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+    .side-nav h2 {
+      margin: 0 0 8px;
+      font-size: .95rem;
+    }
+    .side-nav a {
+      display: block;
+      border-radius: 6px;
+      padding: 7px 8px;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: .92rem;
+    }
+    .side-nav a:hover {
+      background: var(--soft);
+      color: var(--accent);
+    }
+    main { min-width: 0; }
     section {
       margin-bottom: 22px;
       border: 1px solid var(--line);
@@ -130,7 +164,9 @@
     .hamburger-panel a.current { background: var(--soft); color: var(--accent); }
     footer { max-width: 1080px; margin: 0 auto 32px; padding: 0 24px; color: var(--muted); font-size: .9rem; }
     @media (max-width: 820px) {
-      .hero, main { padding-inline: 16px; }
+      .hero { padding-inline: 16px; }
+      .layout { display: block; padding: 28px 16px 58px; }
+      .side-nav { position: static; margin-bottom: 18px; }
       h1 { font-size: 1.65rem; }
       .grid { grid-template-columns: 1fr; }
     }
@@ -155,15 +191,23 @@
     </div>
   </header>
 
-  <main>
-    <section>
+  <div class="layout">
+    <nav class="side-nav" aria-label="目次">
+      <h2>目次</h2>
+      <a href="#status">作成状況</a>
+      <a href="#range">授業計画ベースの範囲</a>
+      <a href="#replace">あとで差し替える内容</a>
+    </nav>
+
+    <main>
+    <section id="status">
       <h2>作成状況</h2>
       <div class="notice">
         <p><strong>仮ページです。</strong> 現時点では授業計画ベース。講義資料を読み込んだ後、正式な復習ページに更新します。</p>
       </div>
     </section>
 
-    <section>
+    <section id="range">
       <h2>授業計画ベースの範囲</h2>
       <div class="grid">
         <article class="card">
@@ -189,7 +233,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="replace">
       <h2>あとで差し替える内容</h2>
       <ul>
         <li>各回の講義資料に基づく用語カード</li>
@@ -198,7 +242,8 @@
         <li>実際に出た問題のログ</li>
       </ul>
     </section>
-  </main>
+    </main>
+  </div>
 
   <footer>
     <p>授業計画画像から作成した仮ページです。講義資料入手後に差し替え予定です。</p>
