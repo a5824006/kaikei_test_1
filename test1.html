@@ -610,7 +610,12 @@
       top: 14px;
       right: 14px;
       z-index: 80;
-      width: min(270px, calc(100vw - 28px));
+      width: 44px;
+      margin: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      overflow: visible;
     }
 
     .hamburger-menu summary {
@@ -652,6 +657,9 @@
     }
 
     .hamburger-panel {
+      position: absolute;
+      right: 0;
+      width: min(240px, calc(100vw - 28px));
       margin-top: 8px;
       border: 1px solid var(--line);
       border-radius: 8px;
