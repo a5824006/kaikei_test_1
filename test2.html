@@ -141,35 +141,67 @@
     }
     .flow {
       display: grid;
-      grid-template-columns: repeat(5, minmax(120px, 1fr));
+      grid-template-columns: repeat(5, minmax(130px, 1fr));
       gap: 8px;
       margin: 12px 0;
       overflow-x: auto;
     }
-    .flow span {
-      min-width: 120px;
+    .word-card {
+      min-width: 130px;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: #fff;
-      padding: 10px;
-      text-align: center;
-      font-weight: 800;
+      margin: 0;
+      overflow: hidden;
     }
-    .pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 10px 0 14px;
-      padding: 0;
+    .word-card summary {
+      display: grid;
+      place-items: center;
+      min-height: 56px;
+      padding: 9px 10px;
+      background: #fff;
+      text-align: center;
+      font-weight: 900;
       list-style: none;
     }
-    .pill-list li {
-      border: 1px solid var(--line);
+    .word-card summary::-webkit-details-marker {
+      display: none;
+    }
+    .word-card summary::after {
+      content: "+";
+      display: inline-grid;
+      place-items: center;
+      width: 18px;
+      height: 18px;
+      margin-top: 4px;
       border-radius: 999px;
       background: var(--soft);
-      padding: 5px 10px;
-      font-weight: 800;
+      color: var(--accent);
+      font-size: .86rem;
+      line-height: 1;
+    }
+    .word-card[open] summary {
+      border-bottom: 1px solid var(--line);
+      background: var(--soft);
+    }
+    .word-card[open] summary::after {
+      content: "-";
+    }
+    .word-body {
+      padding: 10px 12px 12px;
+      font-size: .92rem;
+    }
+    .word-body p {
       margin: 0;
+    }
+    .term-dropdowns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: 10px 0 14px;
+    }
+    .term-dropdowns .word-card {
+      min-width: 0;
     }
     .box {
       min-height: 72px;
@@ -285,60 +317,25 @@
       .flow {
         display: block;
         overflow-x: visible;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: #fff;
       }
-      .flow span {
+      .flow .word-card,
+      .term-dropdowns .word-card {
+        min-width: 0;
+        margin: 8px 0;
+      }
+      .word-card summary {
         display: flex;
         align-items: center;
-        min-width: 0;
-        border: 0;
-        border-radius: 0;
-        background: transparent;
-        padding: 8px 10px;
+        justify-content: space-between;
+        min-height: 0;
         text-align: left;
       }
-      .flow span + span {
-        border-top: 1px solid var(--line);
-      }
-      .flow span::before {
-        content: "";
+      .word-card summary::after {
         flex: 0 0 auto;
-        width: 7px;
-        height: 7px;
-        margin-right: 9px;
-        border-radius: 999px;
-        background: var(--accent);
+        margin: 0 0 0 10px;
       }
-      .pill-list {
+      .term-dropdowns {
         display: block;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: #fff;
-        overflow: hidden;
-      }
-      .pill-list li {
-        position: relative;
-        display: block;
-        border: 0;
-        border-radius: 0;
-        background: transparent;
-        padding: 8px 10px 8px 26px;
-      }
-      .pill-list li + li {
-        border-top: 1px solid var(--line);
-      }
-      .pill-list li::before {
-        content: "";
-        position: absolute;
-        left: 12px;
-        top: 50%;
-        width: 6px;
-        height: 6px;
-        transform: translateY(-50%);
-        border-radius: 999px;
-        background: var(--accent);
       }
     }
   </style>
@@ -515,22 +512,67 @@
       <p>経営戦略は、外部環境の機会・脅威と、内部環境の強み・弱みを踏まえ、企業価値を創出するための基本的手段を決めることです。</p>
 
       <div class="flow" aria-label="戦略策定プロセス">
-        <span>外部環境分析</span>
-        <span>内部環境分析</span>
-        <span>SWOT分析</span>
-        <span>戦略代替案</span>
-        <span>戦略決定</span>
+        <details class="word-card">
+          <summary>外部環境分析</summary>
+          <div class="word-body">
+            <p>市場、顧客、競合、法律、技術変化など、自社の外側にある機会と脅威を見る。自社だけでは変えにくい条件を読む作業。</p>
+          </div>
+        </details>
+        <details class="word-card">
+          <summary>内部環境分析</summary>
+          <div class="word-body">
+            <p>人材、技術、ブランド、資金、設備、コスト構造など、自社の強みと弱みを見る。戦える材料が何かを確認する。</p>
+          </div>
+        </details>
+        <details class="word-card">
+          <summary>SWOT分析</summary>
+          <div class="word-body">
+            <p>強み、弱み、機会、脅威を組み合わせて戦略を考える枠組み。外部環境と内部環境をつなげて判断するために使う。</p>
+          </div>
+        </details>
+        <details class="word-card">
+          <summary>戦略代替案</summary>
+          <div class="word-body">
+            <p>目標と成行予測の差を埋めるための複数の選択肢。新市場に出る、製品を増やす、コストを下げるなどの候補を比べる。</p>
+          </div>
+        </details>
+        <details class="word-card">
+          <summary>戦略決定</summary>
+          <div class="word-body">
+            <p>代替案を評価し、どの基本方針で進むかを決める段階。決まった方針は、事業戦略や機能別戦略へ落とし込まれる。</p>
+          </div>
+        </details>
       </div>
 
       <div class="grid">
         <article class="card">
           <h3>経営戦略の構成要素</h3>
-          <ul class="pill-list">
-            <li>事業領域</li>
-            <li>資源展開</li>
-            <li>競争優位性</li>
-            <li>シナジー効果</li>
-          </ul>
+          <div class="term-dropdowns">
+            <details class="word-card">
+              <summary>事業領域</summary>
+              <div class="word-body">
+                <p>どの市場で、誰に、どんな価値を提供するかという「どこで戦うか」。戦略を考える前提になる。</p>
+              </div>
+            </details>
+            <details class="word-card">
+              <summary>資源展開</summary>
+              <div class="word-body">
+                <p>限られた人・お金・設備・時間を、どの事業や活動へ配分するか。PPMの資源配分ともつながる。</p>
+              </div>
+            </details>
+            <details class="word-card">
+              <summary>競争優位性</summary>
+              <div class="word-body">
+                <p>競争相手より選ばれる理由。低コスト、品質、ブランド、技術、サービスなどが「売り」になる。</p>
+              </div>
+            </details>
+            <details class="word-card">
+              <summary>シナジー効果</summary>
+              <div class="word-body">
+                <p>複数の事業や活動を組み合わせることで、単独より大きな成果が出ること。販売網、技術、ブランドの共有など。</p>
+              </div>
+            </details>
+          </div>
           <p>何をする会社か、どこに資源を使うか、競争相手に対する売りは何か、複数事業を組み合わせてどんな相乗効果を出すか、という見方。</p>
         </article>
         <article class="card">
