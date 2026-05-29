@@ -1,1 +1,4 @@
 _source_extracts/
+.venv/
+.stt_deps/
+.hf_cache/
